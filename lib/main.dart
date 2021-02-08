@@ -338,9 +338,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 NiceButton(
-                width: 150,
+                width: ScreenUtil().setSp(150),
                 elevation: 10.0,
-                radius: 52.0,
+                radius: ScreenUtil().setSp(52.0),
                 text: "\n$t1\n",
                 background: Colors.blue,
                 onPressed: () {
@@ -348,9 +348,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                 ),
                 NiceButton(
-                width: 150,
+                width: ScreenUtil().setSp(150),
                 elevation: 10.0,
-                radius: 52.0,
+                radius: ScreenUtil().setSp(52.0),
                 text: "\n$t2\n",
                 background: Colors.blue,
                 onPressed: () {

@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
 //import 'package:flutter_tts/flutter_tts_web.dart';
 import 'package:wakelock/wakelock.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
     return ScreenUtilInit(
       allowFontScaling: false,
       builder: () => MaterialApp(
@@ -73,6 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<String> listOfWordFor = ['A for Apple','B for Boy','C for Cat','D for Dog','E for Egg','F for Fish','G for Girl','H for Hand'
   ,'I for Ice-scream','J for Jet','K for Kite','L for Lamp','M for Man','N for Nose','O for Orange','P for Pen','Q for Queen','R for Rain'
   ,'S for Sugar','T for Tree','U for Umbrella','V for Van','W for Water','X for X\'mas','Y for Yellow','Z for Zoo'];
+
+  List<Color> colorList = [
+    Colors.red,Colors.orange,Colors.teal,Colors.green,Colors.blue,Colors.purple
+    ,Colors.red,Colors.orange,Colors.teal,Colors.green,Colors.blue,Colors.purple
+    ,Colors.red,Colors.orange,Colors.teal,Colors.green,Colors.blue,Colors.purple
+    ,Colors.red,Colors.orange,Colors.teal,Colors.green,Colors.blue,Colors.purple
+    ,Colors.red,Colors.orange
+    ];
   
   /*
   A for Apple B for Boy
@@ -221,7 +233,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future _getLanguages() async {
     languages = await flutterTts.getLanguages;
-    if (languages != null) setState(() => languages);
+    if (languages != null) 
+    setState(() => languages);
   }
 
   Future _getEngines() async {
@@ -303,21 +316,23 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 NiceButton(
+                fontSize: ScreenUtil().setSp(80),
                 width: ScreenUtil().setSp(150),
                 elevation: 10.0,
                 radius: ScreenUtil().setSp(52.0),
-                text: "\n$t1\n",
-                background: Colors.blue,
+                text: "$t1",
+                background: colorList[i],
                 onPressed: () {
                     _speak(listOfWordFor[i]);
                     },
                 ),
                 NiceButton(
+                fontSize: ScreenUtil().setSp(80),
                 width: ScreenUtil().setSp(150),
                 elevation: 10.0,
                 radius: ScreenUtil().setSp(52.0),
-                text: "\n$t2\n",
-                background: Colors.blue,
+                text: "$t2",
+                background: colorList[i+1],
                 onPressed: () {
                     _speak(listOfWordFor[i+1]);
                     },
@@ -339,21 +354,23 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 NiceButton(
+                fontSize: ScreenUtil().setSp(80),
                 width: ScreenUtil().setSp(150),
                 elevation: 10.0,
                 radius: ScreenUtil().setSp(52.0),
-                text: "\n$t1\n",
-                background: Colors.blue,
+                text: "$t1",
+                background: colorList[24],
                 onPressed: () {
                     _speak(listOfWordFor[24]);
                     },
                 ),
                 NiceButton(
+                fontSize: ScreenUtil().setSp(80),
                 width: ScreenUtil().setSp(150),
                 elevation: 10.0,
                 radius: ScreenUtil().setSp(52.0),
-                text: "\n$t2\n",
-                background: Colors.blue,
+                text: "$t2",
+                background: colorList[25],
                 onPressed: () {
                     _speak(listOfWordFor[25]);
                     },
